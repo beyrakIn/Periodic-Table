@@ -274,11 +274,6 @@ public class Element implements Serializable{
                 ", Period=" + Period +
                 ", Group=" + Group +
                 ", Phase='" + Phase + '\'' +
-                ", Radioactive=" + Radioactive +
-                ", Natural=" + Natural +
-                ", Metal=" + Metal +
-                ", Nonmetal=" + Nonmetal +
-                ", Metalloid=" + Metalloid +
                 ", Type='" + Type + '\'' +
                 ", AtomicRadius=" + AtomicRadius +
                 ", Electronegativity=" + Electronegativity +

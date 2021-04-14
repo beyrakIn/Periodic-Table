@@ -1,13 +1,11 @@
 package com.example.chemistry.api;
 
 import com.example.chemistry.api.models.Element;
-import com.example.chemistry.api.models.Git;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 import retrofit2.http.Url;
 
 public interface AppService {
@@ -21,11 +19,5 @@ public interface AppService {
     Call<Element> ELEMENT_CALL(
             @Url String url
     );
-
-    @GET
-    Call<Git> GIT_CALL(
-            @Url String url
-    );
-
 
 }

@@ -1,6 +1,8 @@
 package com.example.chemistry;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.chemistry.api.adapters.ElementAdapter;
 import com.example.chemistry.api.methods.GetElements;
 import com.example.chemistry.api.models.Element;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
                         recyclerView.setItemViewCacheSize(100);
                         elementAdapter.notifyDataSetChanged();
                     }
-                    System.out.println(response.code());
-                    System.out.println(response.message());
-                    System.out.println(response.body());
                 }
 
                 @Override
