@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chemistry.R;
 import com.example.chemistry.api.models.Element;
+import com.example.chemistry.api.views.AtomView;
 import com.example.chemistry.api.views.ElementView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -46,11 +47,18 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
 
             TextView textView = view.findViewById(R.id.bottom_sheet_details);
 
+            View atom = new AtomView(context);
 
             textView.setText(element.toString());
 
+            try {
+                holder.elementsCard.addView(atom);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activity);
-            bottomSheetDialog.setContentView(view);
+            bottomSheetDialog.setContentView(atom);
             bottomSheetDialog.show();
         });
     }
