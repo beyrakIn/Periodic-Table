@@ -1,6 +1,5 @@
 package com.example.chemistry;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +28,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Integer[] shells = {2, 8, 18, 19, 9, 2};
+        Integer[] shells = {
+                2,
+                8,
+                18,
+                32,
+                32,
+                18,
+                8,
+                1
+        };
         List<Integer> shell = new ArrayList<>();
         Collections.addAll(shell, shells);
 
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             new GetElements().getElements().enqueue(new Callback<List<Element>>() {
                 @Override
                 public void onResponse(Call<List<Element>> call, Response<List<Element>> response) {
-                    if (response.isSuccessful()){
+                    if (response.isSuccessful()) {
                         elements = response.body();
                         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),
                                 RecyclerView.VERTICAL, false);

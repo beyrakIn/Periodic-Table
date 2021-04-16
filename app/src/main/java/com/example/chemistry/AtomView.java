@@ -27,6 +27,8 @@ public class AtomView extends View {
     private int strokeColor;
     private int electronRadius;
     private int strokeWidth;
+    private int textSize;
+    private int textColor;
 
 
     public AtomView(Context context) {
@@ -55,14 +57,12 @@ public class AtomView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int x = width / 2;//getWidth() / 2;
-        int y = height / 2; // 2;
+        int x = width / 2;
+        int y = height / 2;
         final int atomRadius = 50;
-        final int textSize = 60;
         int orbitRadius = 45;
         final int orbitDistance = 35;
 
-        int[] shells = {2, 8, 18, 19, 9, 2};
         //BG
         paint.setColor(Color.TRANSPARENT);
         paint.setStrokeWidth(strokeWidth);
@@ -76,19 +76,23 @@ public class AtomView extends View {
 //        canvas.drawText("Mg", x - 25f, y + 25f, paint);
 
         //Electrons
-        for (int i : shells) {
-            int distance = orbitRadius += orbitDistance;
-            drawOrbit(x, y, distance, orbitRadius, electronRadius, i, canvas);
+        orbitRadius = shells.size() * 35 + atomRadius + orbitRadius - 10;
+        for (int i = shells.size() - 1; i >= 0; i--) {
+            int k = shells.get(i);
+            int distance = orbitRadius -= orbitDistance;
+            drawOrbit(x, y, distance, orbitRadius, electronRadius, k, canvas);
         }
 
         invalidate();
     }
 
+
     private void drawOrbit(int x, int y, int distance, int orbitRadius, int electronRadius, int i, Canvas canvas) {
+        int divide = (shells.size() > 3) ? 30 : 2;
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(strokeColor);
         canvas.drawCircle(x, y, distance, paint);
-        canvas.rotate(degree++ / 10, x, y);
+        canvas.rotate(degree++ / divide, x, y);
 
         for (int j = 0; j < i; j++) {
             paint.setStyle(Paint.Style.FILL);
@@ -107,6 +111,8 @@ public class AtomView extends View {
             symbol = typedArray.getString(R.styleable.AtomView_symbol);
             electronRadius = typedArray.getInt(R.styleable.AtomView_electronRadius, 10);
             strokeWidth = typedArray.getInt(R.styleable.AtomView_strokeBold, 2);
+            textSize = typedArray.getInt(R.styleable.AtomView_android_textSize, 50);
+            textColor = typedArray.getInt(R.styleable.AtomView_android_textColor, Color.WHITE);
         } finally {
             typedArray.recycle();
         }
@@ -118,10 +124,8 @@ public class AtomView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 //        width = this.getWidth();
 //        height = this.getHeight();
-
         width = MeasureSpec.getSize(widthMeasureSpec);
         height = MeasureSpec.getSize(heightMeasureSpec);
-
     }
 
     public String getSymbol() {
@@ -180,6 +184,26 @@ public class AtomView extends View {
 
     public void setStrokeWidth(int strokeWidth) {
         this.strokeWidth = strokeWidth;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getTextSize() {
+        return textSize;
+    }
+
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
         invalidate();
         requestLayout();
     }
