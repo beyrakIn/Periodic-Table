@@ -11,6 +11,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import java.util.Collections;
 import java.util.List;
 
 public class AtomView extends View {
@@ -27,8 +28,8 @@ public class AtomView extends View {
     private int strokeColor;
     private int electronRadius;
     private int strokeWidth;
-    private int textSize;
-    private int textColor;
+//    private int textSize;
+//    private int textColor;
 
 
     public AtomView(Context context) {
@@ -111,8 +112,8 @@ public class AtomView extends View {
             symbol = typedArray.getString(R.styleable.AtomView_symbol);
             electronRadius = typedArray.getInt(R.styleable.AtomView_electronRadius, 10);
             strokeWidth = typedArray.getInt(R.styleable.AtomView_strokeBold, 2);
-            textSize = typedArray.getInt(R.styleable.AtomView_android_textSize, 50);
-            textColor = typedArray.getInt(R.styleable.AtomView_android_textColor, Color.WHITE);
+//            textSize = typedArray.getInt(R.styleable.AtomView_android_textSize, 50);
+//            textColor = typedArray.getInt(R.styleable.AtomView_android_textColor, Color.BLACK);
         } finally {
             typedArray.recycle();
         }
@@ -188,23 +189,4 @@ public class AtomView extends View {
         requestLayout();
     }
 
-    public int getTextSize() {
-        return textSize;
-    }
-
-    public void setTextSize(int textSize) {
-        this.textSize = textSize;
-        invalidate();
-        requestLayout();
-    }
-
-    public int getTextColor() {
-        return textColor;
-    }
-
-    public void setTextColor(int textColor) {
-        this.textColor = textColor;
-        invalidate();
-        requestLayout();
-    }
 }

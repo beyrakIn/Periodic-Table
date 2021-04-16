@@ -26,5 +26,11 @@
             android:layout_width="match_parent"
             android:text="Lorem Ipsum"
             android:layout_height="wrap_content" />
+
+        <com.example.chemistry.AtomView
+            android:id="@+id/bottom_sheet_atom_view"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:color="@color/teal_700"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

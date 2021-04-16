@@ -2,6 +2,7 @@ package com.example.chemistry.api.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.example.chemistry.AtomView;
 import com.example.chemistry.api.views.ElementView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
@@ -46,19 +49,23 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
             View view = LayoutInflater.from(activity).inflate(R.layout.bottom_sheet, null);
 
             TextView textView = view.findViewById(R.id.bottom_sheet_details);
+            AtomView atomView = view.findViewById(R.id.bottom_sheet_atom_view);
 
-            View atom = new AtomView(context);
-
+            Integer[] shells = {
+                    2,
+                    8,
+                    18,
+                    8,
+                    1
+            };
+            List<Integer> shell = new ArrayList<>();
+            Collections.addAll(shell, shells);
+            atomView.setShells(shell);
             textView.setText(element.toString());
 
-            try {
-                holder.elementsCard.addView(atom);
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
 
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activity);
-            bottomSheetDialog.setContentView(atom);
+            bottomSheetDialog.setContentView(view);
             bottomSheetDialog.show();
         });
     }
