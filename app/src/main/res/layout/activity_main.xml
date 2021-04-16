@@ -9,12 +9,10 @@
     tools:context=".MainActivity">
 
     <com.example.chemistry.AtomView
+        android:id="@+id/atomView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:strokeColor="@color/teal_700"
-        app:color="@color/teal_700"
-        app:electronRadius="15"
-        app:strokeBold="5"/>
+        app:color="@color/teal_700" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

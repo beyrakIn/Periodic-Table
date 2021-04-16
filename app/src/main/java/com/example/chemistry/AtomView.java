@@ -44,59 +44,19 @@ public class AtomView extends View {
         path = new Path();
         paint = new Paint();
         paint.setAntiAlias(true);
+        strokePaint = new Paint();
+        strokePaint.setAntiAlias(true);
     }
 
     public AtomView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-
-    private void GetAttributes(AttributeSet attrs) {
-        TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.AtomView, 0, 0);
-        try {
-            color = typedArray.getColor(R.styleable.AtomView_color, Color.RED);
-            strokeColor = typedArray.getColor(R.styleable.AtomView_strokeColor, Color.BLACK);
-            symbol = typedArray.getString(R.styleable.AtomView_symbol);
-            electronRadius = typedArray.getInt(R.styleable.AtomView_electronRadius, 10);
-            strokeWidth = typedArray.getInt(R.styleable.AtomView_strokeBold, 2);
-        } finally {
-            typedArray.recycle();
-        }
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-        invalidate();
-        requestLayout();
-    }
-
-    public int getColor() {
-        return color;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
-        invalidate();
-        requestLayout();
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        width = this.getWidth();
-        height = this.getHeight();
-    }
-
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int x = getWidth() / 2;
-        int y = getHeight() / 2;
+        int x = width / 2;//getWidth() / 2;
+        int y = height / 2; // 2;
         final int atomRadius = 50;
         final int textSize = 60;
         int orbitRadius = 45;
@@ -139,4 +99,88 @@ public class AtomView extends View {
     }
 
 
+    private void GetAttributes(AttributeSet attrs) {
+        TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.AtomView, 0, 0);
+        try {
+            color = typedArray.getColor(R.styleable.AtomView_color, Color.RED);
+            strokeColor = typedArray.getColor(R.styleable.AtomView_strokeColor, color);
+            symbol = typedArray.getString(R.styleable.AtomView_symbol);
+            electronRadius = typedArray.getInt(R.styleable.AtomView_electronRadius, 10);
+            strokeWidth = typedArray.getInt(R.styleable.AtomView_strokeBold, 2);
+        } finally {
+            typedArray.recycle();
+        }
+    }
+
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        width = this.getWidth();
+//        height = this.getHeight();
+
+        width = MeasureSpec.getSize(widthMeasureSpec);
+        height = MeasureSpec.getSize(heightMeasureSpec);
+
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+        invalidate();
+        requestLayout();
+    }
+
+    public List<Integer> getShells() {
+        return shells;
+    }
+
+    public void setShells(List<Integer> shells) {
+        this.shells = shells;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getStrokeColor() {
+        return strokeColor;
+    }
+
+    public void setStrokeColor(int strokeColor) {
+        this.strokeColor = strokeColor;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getElectronRadius() {
+        return electronRadius;
+    }
+
+    public void setElectronRadius(int electronRadius) {
+        this.electronRadius = electronRadius;
+        invalidate();
+        requestLayout();
+    }
+
+    public int getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public void setStrokeWidth(int strokeWidth) {
+        this.strokeWidth = strokeWidth;
+        invalidate();
+        requestLayout();
+    }
 }
