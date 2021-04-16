@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AtomView">
+        <attr name="color" format="color" />
+        <attr name="symbol" format="string" />
+        <attr name="strokeColor" format="color" />
+        <attr name="electronRadius" format="integer"/>
+        <attr name="strokeBold" format="integer"/>
+    </declare-styleable>
+</resources>

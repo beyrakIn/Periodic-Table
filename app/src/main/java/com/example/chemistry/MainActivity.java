@@ -1,8 +1,6 @@
 package com.example.chemistry;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.chemistry.api.adapters.ElementAdapter;
 import com.example.chemistry.api.methods.GetElements;
 import com.example.chemistry.api.models.Element;
-import com.example.chemistry.api.views.AtomView;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,18 +22,17 @@ public class MainActivity extends AppCompatActivity {
     private ElementAdapter elementAdapter;
     List<Element> elements = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        setContentView(new AtomView(this));
-//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//        StrictMode.setThreadPolicy(policy);
+
 
         recyclerView = findViewById(R.id.recycler_view);
 
 
-        try {
+/*        try {
             new GetElements().getElements().enqueue(new Callback<List<Element>>() {
                 @Override
                 public void onResponse(Call<List<Element>> call, Response<List<Element>> response) {
@@ -50,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         recyclerView.setHasFixedSize(true);
                         recyclerView.setItemViewCacheSize(100);
                         elementAdapter.notifyDataSetChanged();
+                        System.out.println("SA");
                     }
                 }
 
@@ -60,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
             });
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+        }*/
 
     }
+
 }

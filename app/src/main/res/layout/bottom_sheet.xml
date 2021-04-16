@@ -26,6 +26,5 @@
             android:layout_width="match_parent"
             android:text="Lorem Ipsum"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
