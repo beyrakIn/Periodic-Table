@@ -13,7 +13,7 @@ import com.example.chemistry.R;
 public class ElementView extends RecyclerView.ViewHolder {
     public LinearLayout elementsCard;
     public RelativeLayout elementCard;
-    public TextView elementName, iconName, iconRowNumber, iconLatinName, elementLatinName;
+    public TextView elementName, iconName, iconRowNumber, iconLatinName, elementElectronConf;
     public ElementView(@NonNull View itemView) {
         super(itemView);
 
@@ -21,7 +21,7 @@ public class ElementView extends RecyclerView.ViewHolder {
         elementCard = itemView.findViewById(R.id.element_card_color);
         elementName = itemView.findViewById(R.id.element_card_name);
         iconName = itemView.findViewById(R.id.icon_name);
-        elementLatinName = itemView.findViewById(R.id.element_card_latin_names);
+        elementElectronConf = itemView.findViewById(R.id.element_card_electron_conf);
         iconLatinName = itemView.findViewById(R.id.icon_latin_names);
         iconRowNumber = itemView.findViewById(R.id.icon_row_number);
     }

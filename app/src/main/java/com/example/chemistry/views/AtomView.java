@@ -1,4 +1,4 @@
-package com.example.chemistry;
+package com.example.chemistry.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,6 +12,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
+
+import com.example.chemistry.R;
 
 import java.util.Collections;
 import java.util.List;

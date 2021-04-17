@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         elementAdapter = new ElementAdapter(getApplicationContext(), elements);
                         recyclerView.setAdapter(elementAdapter);
                         recyclerView.setHasFixedSize(true);
-                        recyclerView.setItemViewCacheSize(100);
+                        recyclerView.setItemViewCacheSize(150);
                         elementAdapter.notifyDataSetChanged();
                         progress.stop();
                     }

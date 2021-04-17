@@ -9,10 +9,11 @@
     app:layout_behavior="@string/bottom_sheet_behavior">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:gravity="center_horizontal"
         android:id="@+id/bottom_sheet_element_card"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="10dp"
         android:orientation="vertical">
 
         <View
@@ -20,18 +21,63 @@
             android:layout_height="5dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:background="@drawable/element_button"/>
-
-        <com.example.chemistry.AtomView
-            android:id="@+id/bottom_sheet_atom_view"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:color="@color/purple_500"/>
+            android:background="@drawable/element_button" />
 
         <TextView
-            android:id="@+id/bottom_sheet_details"
+            android:id="@+id/bottom_sheet_element_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anton"
+            android:text="@string/helium"
+            android:textSize="16dp" />
+
+        <com.example.chemistry.views.AtomView
+            android:id="@+id/bottom_sheet_atom_view"
             android:layout_width="match_parent"
-            android:text="Lorem Ipsum"
-            android:layout_height="wrap_content" />
+            android:layout_height="250dp"
+            app:color="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_electron_conf_sem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/he_2s2_2p4"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/bottom_sheet_electron_conf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/black"
+            android:text="@string/he_2s2_2p4"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/anton"
+            android:textColor="@color/black"
+            android:text="phase"
+            android:textAllCaps="true"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/bottom_sheet_phase"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/unknown"
+            app:tint="@color/purple_500" />
+
+
+        <LinearLayout
+            android:id="@+id/bottom_sheet_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
