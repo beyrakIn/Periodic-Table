@@ -13,13 +13,11 @@ public class GetElements {
 
     public Call<List<Element>> getElements() {
         appService = Config.retrofit.create(AppService.class);
-        return appService.LIST_CALL("https://pt-api.herokuapp.com/elements/");
+        return appService.LIST_CALL("https://pt-elements.herokuapp.com/api/v1/jsonfile/elements.json/");
     }
 
     public Call<Element> getElement() {
-        final String path = "element/symbol/";
-        String element = "H";
         appService = Config.retrofit.create(AppService.class);
-        return appService.ELEMENT_CALL("https://neelpatel05.pythonanywhere.com/element/symbol/?symbol=H");
+        return appService.ELEMENT_CALL("https://pt-elements.herokuapp.com/api/v1/jsonfile/elements.json/");
     }
 }

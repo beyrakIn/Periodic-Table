@@ -6,10 +6,12 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Collections;
 import java.util.List;
@@ -72,9 +74,10 @@ public class AtomView extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(color);
         canvas.drawCircle(x, y, atomRadius, paint);
-//        paint.setColor(Color.BLACK);
-//        paint.setTextSize(50f);
-//        canvas.drawText("Mg", x - 25f, y + 25f, paint);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(50f);
+        paint.setTypeface(ResourcesCompat.getFont(getContext(), R.font.anton));
+        canvas.drawText(symbol, x - 25f, y + 25f, paint);
 
         //Electrons
         orbitRadius = shells.size() * 35 + atomRadius + orbitRadius - 10;

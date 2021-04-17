@@ -12,14 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chemistry.AtomView;
 import com.example.chemistry.R;
 import com.example.chemistry.api.models.Element;
-import com.example.chemistry.AtomView;
 import com.example.chemistry.api.views.ElementView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
@@ -42,7 +40,20 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
     @Override
     public void onBindViewHolder(@NonNull ElementView holder, int position) {
         Element element = elements.get(position);
-        holder.textView.setText(element.getElement());
+        holder.elementName.setText(element.getName());
+        holder.iconLatinName.setText(element.getName());
+        holder.elementLatinName.setText(element.getName());
+        holder.iconName.setText(element.getSymbol());
+        holder.iconRowNumber.setText(String.valueOf((int) element.getNumber()));
+        try {
+            if (element.getCpk_hex().equals("ffffff"))
+                holder.elementCard.setBackgroundColor(context.getResources().getColor(R.color.purple_200));
+            else
+                holder.elementCard.setBackgroundColor(Color.parseColor('#' + element.getCpk_hex()));
+
+        } catch (Exception e) {
+
+        }
 
         holder.itemView.setOnClickListener(v -> {
             Activity activity = (AppCompatActivity) v.getContext();
@@ -51,16 +62,20 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
             TextView textView = view.findViewById(R.id.bottom_sheet_details);
             AtomView atomView = view.findViewById(R.id.bottom_sheet_atom_view);
 
-            Integer[] shells = {
-                    2,
-                    8,
-                    18,
-                    8,
-                    1
-            };
-            List<Integer> shell = new ArrayList<>();
-            Collections.addAll(shell, shells);
-            atomView.setShells(shell);
+            atomView.setShells(element.getShells());
+            atomView.setSymbol(element.getSymbol());
+            try {
+
+                if (element.getCpk_hex().equals("ffffff")) {
+                    atomView.setColor(context.getResources().getColor(R.color.purple_200));
+                    atomView.setStrokeColor(context.getResources().getColor(R.color.purple_200));
+                } else {
+                    atomView.setColor(Color.parseColor('#' + element.getCpk_hex()));
+                    atomView.setStrokeColor(Color.parseColor('#' + element.getCpk_hex()));
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
             textView.setText(element.toString());
 
 

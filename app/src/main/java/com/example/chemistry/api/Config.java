@@ -5,8 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Config {
     public static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://pt-api.herokuapp.com/elements/")
-//            .baseUrl("https://api.github.com/")
+            .baseUrl("https://pt-elements.herokuapp.com/api/v1/jsonfile/elements.json/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

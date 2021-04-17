@@ -1,292 +1,289 @@
 package com.example.chemistry.api.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Element implements Serializable{
-    private String AtomicNumber;
-    private String Element;
-    private String Symbol;
-    private String AtomicMass;
-    private String NumberofNeutrons;
-    private String NumberofProtons;
-    private String NumberofElectrons;
-    private String Period;
-    private String Group;
-    private String Phase;
-    private boolean Radioactive;
-    private boolean Natural;
-    private boolean Metal;
-    private boolean Nonmetal;
-    private boolean Metalloid;
-    private String Type;
-    private String AtomicRadius;
-    private String Electronegativity;
-    private String FirstIonization;
-    private String Density;
-    private String MeltingPoint;
-    private String BoilingPoint;
-    private String NumberOfIsotopes;
-    private String Discoverer;
-    private String Year;
-    private String SpecificHeat;
-    private String NumberofShells;
-    private String NumberofValence;
+public class Element implements Serializable {
+    private String name;
+    private String appearance;
+    private float atomic_mass;
+    private float boil;
+    private String category;
+    private String color = null;
+    private float density;
+    private String discovered_by;
+    private float melt;
+    private float molar_heat;
+    private String named_by = null;
+    private float number;
+    private float period;
+    private String phase;
+    private String source;
+    private String spectral_img = null;
+    private String summary;
+    private String symbol;
+    private float xpos;
+    private float ypos;
+    List<Integer> shells = new ArrayList<>();
+    private String electron_configuration;
+    private String electron_configuration_semantic;
+    private float electron_affinity;
+    private float electronegativity_pauling;
+    List<Float> ionization_energies = new ArrayList<>();
+    private String cpk_hex;
 
 
     // Getter Methods
 
-    public String getAtomicNumber() {
-        return AtomicNumber;
+    public String getName() {
+        return name;
     }
 
-    public String getElement() {
-        return Element;
+    public String getAppearance() {
+        return appearance;
     }
 
-    public String getSymbol() {
-        return Symbol;
+    public float getAtomic_mass() {
+        return atomic_mass;
     }
 
-    public String getAtomicMass() {
-        return AtomicMass;
+    public float getBoil() {
+        return boil;
     }
 
-    public String getNumberofNeutrons() {
-        return NumberofNeutrons;
+    public String getCategory() {
+        return category;
     }
 
-    public String getNumberofProtons() {
-        return NumberofProtons;
+    public String getColor() {
+        return color;
     }
 
-    public String getNumberofElectrons() {
-        return NumberofElectrons;
+    public float getDensity() {
+        return density;
     }
 
-    public String getPeriod() {
-        return Period;
+    public String getDiscovered_by() {
+        return discovered_by;
     }
 
-    public String getGroup() {
-        return Group;
+    public float getMelt() {
+        return melt;
+    }
+
+    public float getMolar_heat() {
+        return molar_heat;
+    }
+
+    public String getNamed_by() {
+        return named_by;
+    }
+
+    public float getNumber() {
+        return number;
+    }
+
+    public float getPeriod() {
+        return period;
     }
 
     public String getPhase() {
-        return Phase;
+        return phase;
     }
 
-    public boolean getRadioactive() {
-        return Radioactive;
+    public String getSource() {
+        return source;
     }
 
-    public boolean getNatural() {
-        return Natural;
+    public String getSpectral_img() {
+        return spectral_img;
     }
 
-    public boolean getMetal() {
-        return Metal;
+    public String getSummary() {
+        return summary;
     }
 
-    public boolean getNonmetal() {
-        return Nonmetal;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public boolean getMetalloid() {
-        return Metalloid;
+    public float getXpos() {
+        return xpos;
     }
 
-    public String getType() {
-        return Type;
+    public float getYpos() {
+        return ypos;
     }
 
-    public String getAtomicRadius() {
-        return AtomicRadius;
+    public String getElectron_configuration() {
+        return electron_configuration;
     }
 
-    public String getElectronegativity() {
-        return Electronegativity;
+    public String getElectron_configuration_semantic() {
+        return electron_configuration_semantic;
     }
 
-    public String getFirstIonization() {
-        return FirstIonization;
+    public float getElectron_affinity() {
+        return electron_affinity;
     }
 
-    public String getDensity() {
-        return Density;
+    public float getElectronegativity_pauling() {
+        return electronegativity_pauling;
     }
 
-    public String getMeltingPoint() {
-        return MeltingPoint;
+    public String getCpk_hex() {
+        return cpk_hex;
     }
 
-    public String getBoilingPoint() {
-        return BoilingPoint;
+    public List<Integer> getShells() {
+        return shells;
     }
 
-    public String getNumberOfIsotopes() {
-        return NumberOfIsotopes;
-    }
-
-    public String getDiscoverer() {
-        return Discoverer;
-    }
-
-    public String getYear() {
-        return Year;
-    }
-
-    public String getSpecificHeat() {
-        return SpecificHeat;
-    }
-
-    public String getNumberofShells() {
-        return NumberofShells;
-    }
-
-    public String getNumberofValence() {
-        return NumberofValence;
+    public List<Float> getIonization_energies() {
+        return ionization_energies;
     }
 
     // Setter Methods
 
-    public void setAtomicNumber(String AtomicNumber) {
-        this.AtomicNumber = AtomicNumber;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setElement(String Element) {
-        this.Element = Element;
+    public void setAppearance(String appearance) {
+        this.appearance = appearance;
     }
 
-    public void setSymbol(String Symbol) {
-        this.Symbol = Symbol;
+    public void setAtomic_mass(float atomic_mass) {
+        this.atomic_mass = atomic_mass;
     }
 
-    public void setAtomicMass(String AtomicMass) {
-        this.AtomicMass = AtomicMass;
+    public void setBoil(float boil) {
+        this.boil = boil;
     }
 
-    public void setNumberofNeutrons(String NumberofNeutrons) {
-        this.NumberofNeutrons = NumberofNeutrons;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public void setNumberofProtons(String NumberofProtons) {
-        this.NumberofProtons = NumberofProtons;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setNumberofElectrons(String NumberofElectrons) {
-        this.NumberofElectrons = NumberofElectrons;
+    public void setDensity(float density) {
+        this.density = density;
     }
 
-    public void setPeriod(String Period) {
-        this.Period = Period;
+    public void setDiscovered_by(String discovered_by) {
+        this.discovered_by = discovered_by;
     }
 
-    public void setGroup(String Group) {
-        this.Group = Group;
+    public void setMelt(float melt) {
+        this.melt = melt;
     }
 
-    public void setPhase(String Phase) {
-        this.Phase = Phase;
+    public void setMolar_heat(float molar_heat) {
+        this.molar_heat = molar_heat;
     }
 
-    public void setRadioactive(boolean Radioactive) {
-        this.Radioactive = Radioactive;
+    public void setNamed_by(String named_by) {
+        this.named_by = named_by;
     }
 
-    public void setNatural(boolean Natural) {
-        this.Natural = Natural;
+    public void setNumber(float number) {
+        this.number = number;
     }
 
-    public void setMetal(boolean Metal) {
-        this.Metal = Metal;
+    public void setPeriod(float period) {
+        this.period = period;
     }
 
-    public void setNonmetal(boolean Nonmetal) {
-        this.Nonmetal = Nonmetal;
+    public void setPhase(String phase) {
+        this.phase = phase;
     }
 
-    public void setMetalloid(boolean Metalloid) {
-        this.Metalloid = Metalloid;
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public void setType(String Type) {
-        this.Type = Type;
+    public void setSpectral_img(String spectral_img) {
+        this.spectral_img = spectral_img;
     }
 
-    public void setAtomicRadius(String AtomicRadius) {
-        this.AtomicRadius = AtomicRadius;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
-    public void setElectronegativity(String Electronegativity) {
-        this.Electronegativity = Electronegativity;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public void setFirstIonization(String FirstIonization) {
-        this.FirstIonization = FirstIonization;
+    public void setXpos(float xpos) {
+        this.xpos = xpos;
     }
 
-    public void setDensity(String Density) {
-        this.Density = Density;
+    public void setYpos(float ypos) {
+        this.ypos = ypos;
     }
 
-    public void setMeltingPoint(String MeltingPoint) {
-        this.MeltingPoint = MeltingPoint;
+    public void setElectron_configuration(String electron_configuration) {
+        this.electron_configuration = electron_configuration;
     }
 
-    public void setBoilingPoint(String BoilingPoint) {
-        this.BoilingPoint = BoilingPoint;
+    public void setElectron_configuration_semantic(String electron_configuration_semantic) {
+        this.electron_configuration_semantic = electron_configuration_semantic;
     }
 
-    public void setNumberOfIsotopes(String NumberOfIsotopes) {
-        this.NumberOfIsotopes = NumberOfIsotopes;
+    public void setElectron_affinity(float electron_affinity) {
+        this.electron_affinity = electron_affinity;
     }
 
-    public void setDiscoverer(String Discoverer) {
-        this.Discoverer = Discoverer;
+    public void setElectronegativity_pauling(float electronegativity_pauling) {
+        this.electronegativity_pauling = electronegativity_pauling;
     }
 
-    public void setYear(String Year) {
-        this.Year = Year;
+    public void setCpk_hex(String cpk_hex) {
+        this.cpk_hex = cpk_hex;
     }
 
-    public void setSpecificHeat(String SpecificHeat) {
-        this.SpecificHeat = SpecificHeat;
+    public void setShells(List<Integer> shells) {
+        this.shells = shells;
     }
 
-    public void setNumberofShells(String NumberofShells) {
-        this.NumberofShells = NumberofShells;
-    }
-
-    public void setNumberofValence(String NumberofValence) {
-        this.NumberofValence = NumberofValence;
+    public void setIonization_energies(List<Float> ionization_energies) {
+        this.ionization_energies = ionization_energies;
     }
 
     @Override
     public String toString() {
-        return "Element{" +
-                "AtomicNumber=" + AtomicNumber +
-                ", Element='" + Element + '\'' +
-                ", Symbol='" + Symbol + '\'' +
-                ", AtomicMass=" + AtomicMass +
-                ", NumberofNeutrons=" + NumberofNeutrons +
-                ", NumberofProtons=" + NumberofProtons +
-                ", NumberofElectrons=" + NumberofElectrons +
-                ", Period=" + Period +
-                ", Group=" + Group +
-                ", Phase='" + Phase + '\'' +
-                ", Type='" + Type + '\'' +
-                ", AtomicRadius=" + AtomicRadius +
-                ", Electronegativity=" + Electronegativity +
-                ", FirstIonization=" + FirstIonization +
-                ", Density='" + Density + '\'' +
-                ", MeltingPoint=" + MeltingPoint +
-                ", BoilingPoint=" + BoilingPoint +
-                ", NumberOfIsotopes=" + NumberOfIsotopes +
-                ", Discoverer='" + Discoverer + '\'' +
-                ", Year=" + Year +
-                ", SpecificHeat=" + SpecificHeat +
-                ", NumberofShells=" + NumberofShells +
-                ", NumberofValence=" + NumberofValence +
+        return "Response{" +
+                "name='" + name + '\'' +
+                ", appearance='" + appearance + '\'' +
+                ", atomic_mass=" + atomic_mass +
+                ", boil=" + boil +
+                ", category='" + category + '\'' +
+                ", color='" + color + '\'' +
+                ", density=" + density +
+                ", discovered_by='" + discovered_by + '\'' +
+                ", melt=" + melt +
+                ", molar_heat=" + molar_heat +
+                ", named_by='" + named_by + '\'' +
+                ", number=" + number +
+                ", period=" + period +
+                ", phase='" + phase + '\'' +
+                ", source='" + source + '\'' +
+                ", spectral_img='" + spectral_img + '\'' +
+                ", summary='" + summary + '\'' +
+                ", symbol='" + symbol + '\'' +
+                ", xpos=" + xpos +
+                ", ypos=" + ypos +
+                ", shells=" + shells +
+                ", electron_configuration='" + electron_configuration + '\'' +
+                ", electron_configuration_semantic='" + electron_configuration_semantic + '\'' +
+                ", electron_affinity=" + electron_affinity +
+                ", electronegativity_pauling=" + electronegativity_pauling +
+                ", ionization_energies=" + ionization_energies +
+                ", cpk_hex='" + cpk_hex + '\'' +
                 '}';
     }
 }
