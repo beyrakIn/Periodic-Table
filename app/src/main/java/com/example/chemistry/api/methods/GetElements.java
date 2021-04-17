@@ -15,9 +15,4 @@ public class GetElements {
         appService = Config.retrofit.create(AppService.class);
         return appService.LIST_CALL("https://pt-elements.herokuapp.com/api/v1/jsonfile/elements.json/");
     }
-
-    public Call<Element> getElement() {
-        appService = Config.retrofit.create(AppService.class);
-        return appService.ELEMENT_CALL("https://pt-elements.herokuapp.com/api/v1/jsonfile/elements.json/");
-    }
 }

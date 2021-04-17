@@ -79,7 +79,12 @@ public class AtomView extends View {
         paint.setColor(Color.WHITE);
         paint.setTextSize(50f);
         paint.setTypeface(ResourcesCompat.getFont(getContext(), R.font.anton));
-        canvas.drawText(symbol, x - 25f, y + 25f, paint);
+        try {
+            canvas.drawText(symbol, x - 25f, y + 25f, paint);
+        } catch (Exception e){
+
+        }
+
 
         //Electrons
         orbitRadius = shells.size() * 35 + atomRadius + orbitRadius - 10;

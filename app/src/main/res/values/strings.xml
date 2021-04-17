@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Chemistry</string>
+    <string name="app_name" translatable="false">Chemistry</string>
     <string name="_20">20</string>
     <string name="he_2s2_2p4">[He] 2s2 2p4</string>
-    <string name="helium">Helium</string>
+    <string name="helium" translatable="false">Helium</string>
+    <string name="search">Search</string>
 </resources>

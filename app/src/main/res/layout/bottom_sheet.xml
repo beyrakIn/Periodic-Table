@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/anton"
             android:text="@string/helium"
-            android:textSize="16dp" />
+            android:textSize="18dp" />
 
         <com.example.chemistry.views.AtomView
             android:id="@+id/bottom_sheet_atom_view"
@@ -43,15 +43,6 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/he_2s2_2p4"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/bottom_sheet_electron_conf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/black"
             android:text="@string/he_2s2_2p4"
             android:textSize="16dp" />
 

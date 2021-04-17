@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,16 +24,20 @@ import com.example.chemistry.api.views.ElementView;
 import com.example.chemistry.views.AtomView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
+public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements Filterable {
     private Context context;
     private List<Element> elements;
+    private List<Element> allElements;
 
 
     public ElementAdapter(Context context, List<Element> elements) {
         this.context = context;
         this.elements = elements;
+        this.allElements = new ArrayList<>(elements);
     }
 
     @NonNull
@@ -63,21 +69,20 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
             Activity activity = (AppCompatActivity) v.getContext();
             View view = LayoutInflater.from(activity).inflate(R.layout.bottom_sheet, null);
 
-            TextView elementName, electronConf, electronConfSem;
+            TextView elementName, electronConfSem;
             ImageView phase;
             LinearLayout options;
 
             phase = view.findViewById(R.id.bottom_sheet_phase);
             elementName = view.findViewById(R.id.bottom_sheet_element_name);
-            electronConf = view.findViewById(R.id.bottom_sheet_electron_conf);
             electronConfSem = view.findViewById(R.id.bottom_sheet_electron_conf_sem);
             options = view.findViewById(R.id.bottom_sheet_options);
 
 
             elementName.setText(element.getName());
-            electronConf.setText(element.getElectron_configuration());
             electronConfSem.setText(element.getElectron_configuration_semantic());
 
+            options.addView(setTextView("electron configuration", element.getElectron_configuration(), context));
             options.addView(setTextView("Appearance", element.getAppearance(), context));
             options.addView(setTextView("Atomic mass", String.valueOf(element.getAtomic_mass()), context));
             options.addView(setTextView("Boil", String.valueOf(element.getBoil()), context));
@@ -128,7 +133,6 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
                     atomView.setStrokeColor(Color.parseColor('#' + element.getCpk_hex()));
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
             }
 
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activity);
@@ -174,8 +178,6 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
         title.setAllCaps(true);
         title.setTextSize(16);
         title.setTypeface(ResourcesCompat.getFont(context, R.font.anton));
-
-//        desc.setTextColor(Color.BLACK);
         linearLayout.addView(title);
 
         for (Float i : s) {
@@ -195,4 +197,37 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> {
     public int getItemCount() {
         return elements.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Element> filteredElements = new ArrayList<>();
+            if (constraint.toString().isEmpty()) {
+                filteredElements.addAll(allElements);
+            } else {
+                for (Element element : allElements) {
+                    if (element.getName().toLowerCase().contains(constraint.toString().toLowerCase())
+                            || String.valueOf(element.getNumber()).toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        filteredElements.add(element);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredElements;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            elements.clear();
+            elements.addAll((Collection<? extends Element>) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
