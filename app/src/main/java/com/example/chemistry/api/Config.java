@@ -8,7 +8,4 @@ public class Config {
             .baseUrl("https://pt-elements.herokuapp.com/api/v1/jsonfile/elements.json/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
-
-
 }

@@ -1,4 +1,4 @@
-package com.example.chemistry.api;
+package com.example.chemistry.views;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.content.Context;
 import com.example.chemistry.R;
 
 public class Progress {
-    ProgressDialog progressDialog;
-    Context context;
+    private ProgressDialog progressDialog;
+    private Context context;
 
     public Progress(Context context) {
         this.context = context;

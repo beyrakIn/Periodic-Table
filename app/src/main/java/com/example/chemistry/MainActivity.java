@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chemistry.api.Progress;
+import com.example.chemistry.views.Progress;
 import com.example.chemistry.api.adapters.ElementAdapter;
 import com.example.chemistry.api.methods.GetElements;
 import com.example.chemistry.api.models.Element;

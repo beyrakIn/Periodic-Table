@@ -11,7 +11,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@+id/main_activity_adView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/element_card" />
@@ -23,8 +23,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="FULL_BANNER"
-        ads:adUnitId="ca-app-pub-2248916584991987/6281824744">
-    </com.google.android.gms.ads.AdView>
-
-
+        ads:adUnitId="ca-app-pub-2248916584991987/6281824744" />
+    <!--ca-app-pub-2248916584991987/6281824744 ORIGINAL-->
+    <!--ca-app-pub-3940256099942544/6300978111 FAKE-->
 </RelativeLayout>

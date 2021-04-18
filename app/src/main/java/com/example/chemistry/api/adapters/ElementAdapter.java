@@ -171,11 +171,11 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
         title.setTextSize(16);
         title.setTypeface(ResourcesCompat.getFont(context, R.font.anton));
 
-//        desc.setTextColor(Color.BLACK);
         desc.setGravity(Gravity.CENTER);
         desc.setText(s);
         desc.setTextSize(16);
         desc.setTypeface(ResourcesCompat.getFont(context, R.font.martel_sans_bold));
+//        desc.setMovementMethod(LinkMovementMethod.getInstance());
 
         linearLayout.addView(title);
         linearLayout.addView(desc);

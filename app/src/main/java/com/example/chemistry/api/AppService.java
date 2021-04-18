@@ -15,9 +15,4 @@ public interface AppService {
             @Url String url
     );
 
-    @GET
-    Call<Element> ELEMENT_CALL(
-            @Url String url
-    );
-
 }
