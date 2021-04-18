@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E5E5E5"
     app:behavior_hideable="true"
     app:behavior_peekHeight="0dp"
     app:layout_behavior="@string/bottom_sheet_behavior">
@@ -50,9 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/anton"
-            android:textColor="@color/black"
             android:text="phase"
             android:textAllCaps="true"
+            android:textColor="@color/black"
             android:textSize="16dp" />
 
         <ImageView
