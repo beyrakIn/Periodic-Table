@@ -3,16 +3,20 @@ package com.example.chemistry;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import androidx.appcompat.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chemistry.api.Progress;
 import com.example.chemistry.api.adapters.ElementAdapter;
 import com.example.chemistry.api.methods.GetElements;
 import com.example.chemistry.api.models.Element;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +27,10 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private Progress progress;
-    SearchView searchView;
     private RecyclerView recyclerView;
     private ElementAdapter elementAdapter;
     private List<Element> elements = new ArrayList<>();
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +40,31 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         progress = new Progress(this);
         progress.start();
         recyclerView = findViewById(R.id.recycler_view);
+        adView = findViewById(R.id.main_activity_adView);
 
         loadData();
+        loadAd();
+    }
+
+    private void loadAd() {
+        MobileAds.initialize(this, initializationStatus -> {
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                Toast.makeText(getApplicationContext(), "Sad(", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+                Toast.makeText(getApplicationContext(), "Thanks)", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void loadData() {
@@ -73,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         try {
             getMenuInflater().inflate(R.menu.search_menu, menu);
             MenuItem item = menu.findItem(R.id.search_action);
-            searchView = (SearchView) item.getActionView();
+            SearchView searchView = (SearchView) item.getActionView();
             searchView.setOnQueryTextListener(this);
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -12,6 +12,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,10 @@ import com.example.chemistry.R;
 import com.example.chemistry.api.models.Element;
 import com.example.chemistry.api.views.ElementView;
 import com.example.chemistry.views.AtomView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
@@ -40,7 +45,6 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
         this.allElements = new ArrayList<>(elements);
     }
 
-    @NonNull
     @Override
     public ElementView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.element_card, parent, false);
@@ -72,11 +76,13 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
             TextView elementName, electronConfSem;
             ImageView phase;
             LinearLayout options;
+            AdView adView;
 
             phase = view.findViewById(R.id.bottom_sheet_phase);
             elementName = view.findViewById(R.id.bottom_sheet_element_name);
             electronConfSem = view.findViewById(R.id.bottom_sheet_electron_conf_sem);
             options = view.findViewById(R.id.bottom_sheet_options);
+            adView = view.findViewById(R.id.bottom_sheet_adView);
 
 
             elementName.setText(element.getName());
@@ -101,8 +107,8 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
             options.addView(setTextView("electronegativity pauling", String.valueOf(element.getElectronegativity_pauling()), context));
             options.addView(setTextView("ionization energies", element.getIonization_energies(), context));
 //            options.addView(setTextView("", String.valueOf(element), context));
-//            options.addView(setTextView("", String.valueOf(element), context));
             options.addView(setTextView("source", String.valueOf(element.getSource()), context));
+            loadAd(activity, adView);
             switch (element.getPhase()) {
                 case "Solid":
                     phase.setImageResource(R.drawable.solid);
@@ -122,6 +128,16 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
             AtomView atomView = view.findViewById(R.id.bottom_sheet_atom_view);
             atomView.setShells(element.getShells());
             atomView.setSymbol(element.getSymbol());
+            int size = element.getShells().size();
+            if ((size <= 3)) {
+                atomView.setMinimumHeight(100);
+            } else if (size <= 5) {
+                atomView.setMinimumHeight(200);
+            } else if (size <= 6) {
+                atomView.setMinimumHeight(300);
+            }else {
+                atomView.setMinimumHeight(350);
+            }
 
             try {
 
@@ -230,4 +246,25 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
             notifyDataSetChanged();
         }
     };
+
+    private void loadAd(Activity context, AdView adView) {
+        MobileAds.initialize(context, initializationStatus -> {
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                Toast.makeText(context, "Sad(", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+                Toast.makeText(context, "Thanks)", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,7 +14,6 @@ import androidx.core.content.res.ResourcesCompat;
 
 import com.example.chemistry.R;
 
-import java.util.Collections;
 import java.util.List;
 
 public class AtomView extends View {
@@ -78,10 +76,11 @@ public class AtomView extends View {
         canvas.drawCircle(x, y, atomRadius, paint);
         paint.setColor(Color.WHITE);
         paint.setTextSize(50f);
+        paint.setTextAlign(Paint.Align.CENTER);
         paint.setTypeface(ResourcesCompat.getFont(getContext(), R.font.anton));
         try {
-            canvas.drawText(symbol, x - 25f, y + 25f, paint);
-        } catch (Exception e){
+            canvas.drawText(symbol, canvas.getWidth() / 2, y + 21f, paint);
+        } catch (Exception e) {
 
         }
 

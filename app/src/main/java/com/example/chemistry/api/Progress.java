@@ -21,6 +21,7 @@ public class Progress {
         progressDialog.getWindow().setBackgroundDrawableResource(
                 android.R.color.transparent
         );
+        progressDialog.setCancelable(false);
     }
 
     public void stop() {

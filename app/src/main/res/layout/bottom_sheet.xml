@@ -70,5 +70,14 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="vertical"/>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/bottom_sheet_adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="FULL_BANNER"
+            ads:adUnitId="ca-app-pub-2248916584991987/6281824744">
+        </com.google.android.gms.ads.AdView>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
