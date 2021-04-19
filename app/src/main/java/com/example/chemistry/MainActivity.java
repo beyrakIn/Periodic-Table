@@ -1,18 +1,23 @@
 package com.example.chemistry;
 
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chemistry.views.Progress;
 import com.example.chemistry.api.adapters.ElementAdapter;
 import com.example.chemistry.api.methods.GetElements;
 import com.example.chemistry.api.models.Element;
+import com.example.chemistry.views.Progress;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -20,6 +25,7 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,8 +48,51 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         recyclerView = findViewById(R.id.recycler_view);
         adView = findViewById(R.id.main_activity_adView);
 
+        setLocale("Az");
         loadData();
         loadAd();
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration,
+                getApplicationContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences(Constants.SETTINGS, MODE_PRIVATE).edit();
+        editor.putString(Constants.LANG, lang);
+        editor.apply();
+    }
+
+    private void changeLanguage() {
+        final String[] languages = {"AZ", "TR", "RU", "EN"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Choose Language");
+        builder.setSingleChoiceItems(languages, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:
+                        setLocale("Az");
+                        break;
+                    case 1:
+                        setLocale("Tr");
+                        break;
+                    case 2:
+                        setLocale("Ru");
+                        break;
+                    case 3:
+                        setLocale("En");
+                        break;
+                }
+
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void loadAd() {
@@ -97,15 +146,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        try {
-            getMenuInflater().inflate(R.menu.search_menu, menu);
-            MenuItem item = menu.findItem(R.id.search_action);
-            SearchView searchView = (SearchView) item.getActionView();
-            searchView.setOnQueryTextListener(this);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        MenuItem item = menu.findItem(R.id.search_action);
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(this);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.lang_action:
+            changeLanguage();
+            break;
         }
-        return true;    //super.onCreateOptionsMenu(menu);
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

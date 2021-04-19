@@ -4,8 +4,15 @@
     <item
         android:id="@+id/search_action"
         app:showAsAction="always|collapseActionView"
-        android:icon="@drawable/ic_fi_rr_search"
+        android:icon="@drawable/ic_fi_br_search"
         android:title="@string/search"
         android:iconTint="@color/white"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+    <item
+        android:id="@+id/lang_action"
+        android:icon="@drawable/ic_fi_rr_search"
+        android:title="@string/language"
+        android:visible="false"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 </menu>
