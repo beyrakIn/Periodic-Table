@@ -89,20 +89,20 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
             electronConfSem.setText(element.getElectron_configuration_semantic());
 
             options.addView(setTextView(context.getResources().getString(R.string.electron_configuration), element.getElectron_configuration(), context));
+            options.addView(setTextView(context.getResources().getString(R.string.category), String.valueOf(element.getCategory()), context));
             options.addView(setTextView(context.getResources().getString(R.string.appearance), element.getAppearance(), context));
+            options.addView(setTextView(context.getResources().getString(R.string.color), String.valueOf(element.getColor()), context));
             options.addView(setTextView(context.getResources().getString(R.string.atomic_mass), String.valueOf(element.getAtomic_mass()), context));
             options.addView(setTextView(context.getResources().getString(R.string.boil), String.valueOf(element.getBoil()), context));
-            options.addView(setTextView(context.getResources().getString(R.string.category), String.valueOf(element.getCategory()), context));
-            options.addView(setTextView(context.getResources().getString(R.string.color), String.valueOf(element.getColor()), context));
-            options.addView(setTextView(context.getResources().getString(R.string.density), String.valueOf(element.getDensity()), context));
-            options.addView(setTextView(context.getResources().getString(R.string.discovered_by), String.valueOf(element.getDiscovered_by()), context));
             options.addView(setTextView(context.getResources().getString(R.string.melt), String.valueOf(element.getMelt()), context));
+            options.addView(setTextView(context.getResources().getString(R.string.density), String.valueOf(element.getDensity()), context));
             options.addView(setTextView(context.getResources().getString(R.string.molar_heat), String.valueOf(element.getMolar_heat()), context));
+            options.addView(setTextView(context.getResources().getString(R.string.discovered_by), String.valueOf(element.getDiscovered_by()), context));
             options.addView(setTextView(context.getResources().getString(R.string.named_by), String.valueOf(element.getNamed_by()), context));
+            options.addView(setTextView(context.getResources().getString(R.string.symbol), String.valueOf(element.getSymbol()), context));
             options.addView(setTextView(context.getResources().getString(R.string.number), String.valueOf((int) element.getNumber()), context));
             options.addView(setTextView(context.getResources().getString(R.string.period), String.valueOf(element.getPeriod()), context));
             options.addView(setTextView(context.getResources().getString(R.string.summary), String.valueOf(element.getSummary()), context));
-            options.addView(setTextView(context.getResources().getString(R.string.symbol), String.valueOf(element.getSymbol()), context));
             options.addView(setTextView(context.getResources().getString(R.string.electron_affinity), String.valueOf(element.getElectron_affinity()), context));
             options.addView(setTextView(context.getResources().getString(R.string.electronegativity_pauling), String.valueOf(element.getElectronegativity_pauling()), context));
             options.addView(setTextView(context.getResources().getString(R.string.ionization_energies), element.getIonization_energies(), context));
@@ -128,21 +128,21 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
             AtomView atomView = view.findViewById(R.id.bottom_sheet_atom_view);
             atomView.setShells(element.getShells());
             atomView.setSymbol(element.getSymbol());
-            int size = element.getShells().size();
-            if ((size <= 3)) {
-                atomView.setMinimumHeight(100);
-            } else if (size <= 5) {
-                atomView.setMinimumHeight(200);
-            } else if (size <= 6) {
-                atomView.setMinimumHeight(300);
-            }else {
-                atomView.setMinimumHeight(350);
-            }
+//            int size = element.getShells().size();
+//            if ((size <= 3)) {
+//                atomView.setMinimumHeight(100);
+//            } else if (size <= 5) {
+//                atomView.setMinimumHeight(200);
+//            } else if (size <= 6) {
+//                atomView.setMinimumHeight(300);
+//            } else {
+//                atomView.setMinimumHeight(350);
+//            }
 
             try {
 
                 if (element.getCpk_hex().equals("ffffff")) {
-                    atomView.setColor(context.getResources().getColor(R.color.purple_200));
+                    atomView.setColor(context.getResources().getColor(R.color.purple_500));
                     atomView.setStrokeColor(context.getResources().getColor(R.color.purple_200));
                 } else {
                     atomView.setColor(Color.parseColor('#' + element.getCpk_hex()));
@@ -228,7 +228,9 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementView> implements
             } else {
                 for (Element element : allElements) {
                     if (element.getName().toLowerCase().contains(constraint.toString().toLowerCase())
-                            || String.valueOf(element.getNumber()).toLowerCase().contains(constraint.toString().toLowerCase())) {
+                            || String.valueOf(element.getNumber()).toLowerCase().contains(constraint.toString().toLowerCase())
+                            || element.getSymbol().toLowerCase().contains(constraint.toString().toLowerCase())
+                    ) {
                         filteredElements.add(element);
                     }
                 }

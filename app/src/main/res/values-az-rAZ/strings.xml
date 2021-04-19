@@ -9,15 +9,15 @@
     <string name="name">ad</string>
     <string name="appearance">görünüş</string>
     <string name="atomic_mass">atom kütləsi</string>
-    <string name="boil">Qaynamaq</string>
+    <string name="boil">Qaynama</string>
     <string name="category">kateqoriya</string>
     <string name="color">rəng</string>
     <string name="density">sıxlıq</string>
     <string name="discovered_by">tərəfindən kəşf edilmişdir</string>
-    <string name="melt">əridir</string>
-    <string name="molar_heat">molar istilik</string>
-    <string name="named_by">adlı</string>
-    <string name="number">nömrə</string>
+    <string name="melt">ərimə</string>
+    <string name="molar_heat">Molar istilik tutumu</string>
+    <string name="named_by">tərəfindən adlandırılmışdır</string>
+    <string name="number">sıra nömrəsi</string>
     <string name="period">dövr</string>
     <string name="phase">faza</string>
     <string name="source">mənbə</string>
@@ -26,11 +26,11 @@
     <string name="symbol">simvol</string>
     <string name="xpos">xpos</string>
     <string name="ypos">ypos</string>
-    <string name="shells">mərmi</string>
+    <string name="shells">qabuqlar</string>
     <string name="electron_configuration">elektron konfiqurasiya</string>
     <string name="electron_configuration_semantic">elektron konfiqurasiya semantik</string>
     <string name="electron_affinity">elektron yaxınlığı</string>
-    <string name="electronegativity_pauling">elektrik mənfiliyi dayandırılması</string>
+    <string name="electronegativity_pauling">elektrik mənfiliyi</string>
     <string name="ionization_energies">ionlaşma enerjiləri</string>
     <string name="cpk_hex">cpk hex</string>
 </resources>

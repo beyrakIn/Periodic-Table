@@ -5,20 +5,20 @@
     <!--    JSON    -->
     <string name="name">isim</string>
     <string name="appearance">görünüm</string>
-    <string name="atomic_mass">"atom kütlesi "</string>
-    <string name="boil">"kaynama"</string>
+    <string name="atomic_mass">atom kütlesi</string>
+    <string name="boil">kaynama</string>
     <string name="category">kategori</string>
     <string name="color">renk</string>
     <string name="density">yoğunluk</string>
-    <string name="discovered_by">"tarafından keşfedildi"</string>
-    <string name="melt">"erimek"</string>
-    <string name="molar_heat">"molar ısı"</string>
+    <string name="discovered_by">tarafından keşfedildi</string>
+    <string name="melt">erime</string>
+    <string name="molar_heat">Molar ısı kapasitesi</string>
     <string name="named_by">tarafından adlandırıldı</string>
-    <string name="number">"numara "</string>
+    <string name="number">numara</string>
     <string name="period">periyod</string>
     <string name="phase">phase</string>
     <string name="source">kaynak</string>
-    <string name="spectral_img">"spektral görüntü"</string>
+    <string name="spectral_img">spektral görüntü</string>
     <string name="summary">özet</string>
     <string name="symbol">sembol</string>
     <string name="xpos">xpos</string>
@@ -26,8 +26,8 @@
     <string name="shells">"kabuklar"</string>
     <string name="electron_configuration">"elektron konfigürasyonu"</string>
     <string name="electron_configuration_semantic">elektron konfigürasyonu semantik</string>
-    <string name="electron_affinity">"elektron ilgisi"</string>
-    <string name="electronegativity_pauling">electronegativity pauling</string>
+    <string name="electron_affinity">elektron ilgisi</string>
+    <string name="electronegativity_pauling">Elektronegatiflik</string>
     <string name="ionization_energies">iyonlaşma enerjileri</string>
     <string name="cpk_hex">cpk hex</string>
 </resources>
