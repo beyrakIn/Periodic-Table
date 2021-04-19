@@ -5,4 +5,32 @@
     <string name="he_2s2_2p4">[He] 2s2 2p4</string>
     <string name="helium">Helium</string>
     <string name="search">Axtar</string>
+    <!--    JSON-->
+    <string name="name">ad</string>
+    <string name="appearance">görünüş</string>
+    <string name="atomic_mass">atom kütləsi</string>
+    <string name="boil">Qaynamaq</string>
+    <string name="category">kateqoriya</string>
+    <string name="color">rəng</string>
+    <string name="density">sıxlıq</string>
+    <string name="discovered_by">tərəfindən kəşf edilmişdir</string>
+    <string name="melt">əridir</string>
+    <string name="molar_heat">molar istilik</string>
+    <string name="named_by">adlı</string>
+    <string name="number">nömrə</string>
+    <string name="period">dövr</string>
+    <string name="phase">faza</string>
+    <string name="source">mənbə</string>
+    <string name="spectral_img">spektral görüntü</string>
+    <string name="summary">xülasə</string>
+    <string name="symbol">simvol</string>
+    <string name="xpos">xpos</string>
+    <string name="ypos">ypos</string>
+    <string name="shells">mərmi</string>
+    <string name="electron_configuration">elektron konfiqurasiya</string>
+    <string name="electron_configuration_semantic">elektron konfiqurasiya semantik</string>
+    <string name="electron_affinity">elektron yaxınlığı</string>
+    <string name="electronegativity_pauling">elektrik mənfiliyi dayandırılması</string>
+    <string name="ionization_energies">ionlaşma enerjiləri</string>
+    <string name="cpk_hex">cpk hex</string>
 </resources>

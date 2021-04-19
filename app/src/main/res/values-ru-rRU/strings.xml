@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Периодическая таблица</string>
+    <string name="search">Поиск</string>
+    <!--    JSON-->
+    <string name="name">название</string>
+    <string name="appearance">внешний вид</string>
+    <string name="atomic_mass">атомная масса</string>
+    <string name="boil">кипятить</string>
+    <string name="category">категория</string>
+    <string name="color">цвет</string>
+    <string name="density">плотность</string>
+    <string name="discovered_by">обнаружен</string>
+    <string name="melt">плавиться</string>
+    <string name="molar_heat">молярное тепло</string>
+    <string name="named_by">названный</string>
+    <string name="number">номер</string>
+    <string name="period">период</string>
+    <string name="phase">фаза</string>
+    <string name="source">источник</string>
+    <string name="spectral_img">спектральное изображение</string>
+    <string name="summary">резюме</string>
+    <string name="symbol">символ</string>
+    <string name="xpos">xpos</string>
+    <string name="ypos">ypos</string>
+    <string name="shells">снаряды</string>
+    <string name="electron_configuration">электронная конфигурация</string>
+    <string name="electron_configuration_semantic">семантика электронной конфигурации</string>
+    <string name="electron_affinity">электронное сродство</string>
+    <string name="electronegativity_pauling">электроотрицательность</string>
+    <string name="ionization_energies">энергии ионизации</string>
+    <string name="cpk_hex">cpk hex</string>
+</resources>

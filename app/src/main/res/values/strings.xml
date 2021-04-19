@@ -2,6 +2,34 @@
     <string name="app_name">Periodic Table</string>
     <string name="_20">20</string>
     <string name="he_2s2_2p4">[He] 2s2 2p4</string>
-    <string name="helium" translatable="false">Helium</string>
+    <string name="helium">Helium</string>
     <string name="search">Search</string>
+    <!--    JSON-->
+    <string name="name">name</string>
+    <string name="appearance">appearance</string>
+    <string name="atomic_mass">atomic mass</string>
+    <string name="boil">boil</string>
+    <string name="category">category</string>
+    <string name="color">color</string>
+    <string name="density">density</string>
+    <string name="discovered_by">discovered by</string>
+    <string name="melt">melt</string>
+    <string name="molar_heat">molar heat</string>
+    <string name="named_by">named by</string>
+    <string name="number">number</string>
+    <string name="period">period</string>
+    <string name="phase">phase</string>
+    <string name="source">source</string>
+    <string name="spectral_img">spectral img</string>
+    <string name="summary">summary</string>
+    <string name="symbol">symbol</string>
+    <string name="xpos">xpos</string>
+    <string name="ypos">ypos</string>
+    <string name="shells">shells</string>
+    <string name="electron_configuration">electron configuration</string>
+    <string name="electron_configuration_semantic">electron configuration semantic</string>
+    <string name="electron_affinity">electron affinity</string>
+    <string name="electronegativity_pauling">electronegativity pauling</string>
+    <string name="ionization_energies">ionization energies</string>
+    <string name="cpk_hex">cpk hex</string>
 </resources>
