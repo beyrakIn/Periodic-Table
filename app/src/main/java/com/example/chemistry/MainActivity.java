@@ -21,6 +21,7 @@ import com.example.chemistry.views.Progress;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         recyclerView = findViewById(R.id.recycler_view);
         adView = findViewById(R.id.main_activity_adView);
 
-        setLocale("Az");
+//        setLocale("Az");
         loadData();
         loadAd();
     }
@@ -103,16 +104,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         adView.setAdListener(new AdListener() {
             @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-                Toast.makeText(getApplicationContext(), "Sad(", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
             public void onAdClicked() {
                 super.onAdClicked();
                 Toast.makeText(getApplicationContext(), "Thanks)", Toast.LENGTH_SHORT).show();
             }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                loadAd();
+            }
+
+
         });
     }
 
